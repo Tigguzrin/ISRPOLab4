@@ -26,4 +26,4 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Run unit tests
-        run: python -m unittest operations.py
+        run: python -m unittest tests/test.py

@@ -10,7 +10,7 @@ def square(n):
             Возвращаемое значение:
                     - (int/float): квадрат числа
     '''
-    return Decimal(str(n))**2
+    return float(Decimal(str(n))**2)
 
 def add_binary(a,b):
     '''
