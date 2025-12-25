@@ -1,7 +1,9 @@
 import unittest
 import os, sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from operations import square, add_binary, sqrt
+from operations import square
+from operations import add_binary
+from operations import sqrt
 
 
 class OperationsTestCase (unittest.TestCase):
@@ -27,7 +29,7 @@ class OperationsTestCase (unittest.TestCase):
         self.assertEqual(res,"0")
     def test_bin_float(self):
         with self.assertRaises(TypeError):
-            res = add_binary(2,3.4)
+            add_binary(2,3.4)
     def test_bin_neg(self):
         res = add_binary(-1,-2)
         self.assertEqual(res, "-11")
@@ -43,17 +45,17 @@ class OperationsTestCase (unittest.TestCase):
         self.assertEqual(res,0)
     def test_sqrt_n_null(self):
         with self.assertRaises(ZeroDivisionError):
-            res = sqrt(2,0)
+            sqrt(2,0)
     def test_sqrt_num_float(self):
         res = sqrt(0.25,2)
         self.assertEqual(res,0.5)
     def test_sqrt_n_float(self):
         res = sqrt(3, 0.5)
         self.assertEqual(res,9)
-    def test_sqrt_num_null(self):
+    def test_sqrt_num_neg(self):
         with self.assertRaises(ValueError):
-            res = sqrt(-4, 2)
-    def test_sqrt_n_null(self):
+            sqrt(-4, 2)
+    def test_sqrt_n_neg(self):
         res = sqrt(4, -2)
         self.assertEqual(res, 0.5)
    
